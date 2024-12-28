@@ -2,10 +2,12 @@ from fastapi import Depends, FastAPI
 from .database import get_db
 from sqlalchemy.orm import Session
 import psycopg2
+from .routers import blogs, users, votes
 
 app = FastAPI()
 
-cursor = psycopg2.connect('postgresql://postgres:Yadnesh%40017@localhost:5432/blog_site')
+app.include_router(blogs.router)
+app.include_router(users.router)
 
 @app.get("/")
 def root(db: Session = Depends(get_db)):
