@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yadneshx17 Blogging Site</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #010922;
+      color: #FFFFFF;
+      font-family: 'Arial', sans-serif;
+    }
+    .gradient {
+      background: linear(90deg, #010922);
+    }
+    .btn-primary {
+      background-color: #8080D7;
+      color: #FFFFFF;
+    }
+    .btn-secondary {
+      border: 2px solid #AAD9D9;
+      color: #AAD9D9;
+    }
+    .card {
+      background-color: #010922;
+      border: 1px solid #8080D7;
+    }
+    /* Adjust hero section to fill the screen height */
+    .hero-section {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="flex items-center justify-between p-6 gradient">
+    <div class="text-2xl font-bold text-white">Yadneshx17</div>
+    <div class="hidden lg:flex gap-x-8">
+      <a href="#" class="text-white font-semibold hover:text-gray-300">Home</a>
+      <a href="#" class="text-white font-semibold hover:text-gray-300">Blogs</a>
+      <a href="#" class="text-white font-semibold hover:text-gray-300">About Me</a>
+      <a href="#" class="text-white font-semibold hover:text-gray-300">Contact</a>
+      <a href="#" class="text-white font-semibold hover:text-gray-300">Log in &rarr;</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section gradient">
+    <h1 class="text-4xl md:text-8xl font-bold mb-6">Discover, Write, Inspire</h1>
+    <p class="text-lg md:text-xl mb-10">A SPACE TO SHARE, LEARN, AND GROW</p>
+    <div class="flex justify-center gap-x-4">
+      <button class="btn-primary px-8 py-5 rounded-full text-lg font-semibold hover:opacity-90">Explore Blogs</button>
+      <button class="btn-secondary px-6 py-3 rounded-full text-lg font-semibold hover:bg-white hover:text-black">Start Your Journey</button>
+    </div>
+  </section>
+
+  <!-- Blog Posts Section -->
+  <section class="py-16 px-8">
+    <h2 class="text-3xl font-bold mb-8 text-center">Blog Posts</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Blog Card 1 -->
+        <div class="bg-white text-black rounded-lg shadow-md p-6">
+            <img src="https://via.placeholder.com/400x200" alt="Blog 1" class="w-full rounded-lg mb-4">
+            <h3 class="text-xl font-bold mb-2">Drones: The Sky's Limit in Mechatronics Innovation</h3>
+            <p>Drones, also known as Unmanned Aerial Vehicles, have revolutionized various industries by bringing innovation to the forefront of mechatronics...</p>
+        </div>
+        <!-- Blog Card 2 -->
+        <div class="bg-white text-black rounded-lg shadow-md p-6">
+            <img src="https://via.placeholder.com/400x200" alt="Blog 2" class="w-full rounded-lg mb-4">
+            <h3 class="text-xl font-bold mb-2">Innovation in Mechatronics: Driving the Future Forward</h3>
+            <p>Mechatronics is the seamless integration of mechanics, electronics, and computing, and it stands as a cornerstone of innovation in modern engineering...</p>
+        </div>
+        <!-- Blog Card 3 -->
+        <div class="bg-white text-black rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-bold mb-2">Collaboration Magic</h3>
+            <p>Welcome to WordPress! This is a sample post. Edit or delete it to take the first step in your blogging journey...</p>
+        </div>
+    </div>
+</section>
+
+
+  <!-- Footer -->
+  <footer class="gradient text-center py-10">
+    <div class="text-white">
+      <p>&copy; 2025 Yadneshx17. All rights reserved.</p>
+      <p class="mt-4">Stay connected: <a href="#" class="text-AAD9D9 underline">Join our newsletter</a></p>
+    </div>
+  </footer>
+</body>
+</html>
