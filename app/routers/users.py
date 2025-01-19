@@ -7,6 +7,11 @@ from ..utils import get_password_hash
 
 router = APIRouter()
 
+# router = APIRouter(
+#     prefix="/users",
+#     tags=['Users']
+# )
+
 # get user
 @router.get("/users/{id}", response_model=UserOut)
 def get_user(id: int, db : Session = Depends(get_db)):
@@ -15,28 +20,29 @@ def get_user(id: int, db : Session = Depends(get_db)):
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"User with id: {id} does not exit")
     return user 
 
-# create users
-@router.post("/users/")
-def create_user(user_info: UserCreate, db: Session = Depends(get_db)):
+# # create users
+# @router.post("/users/", status_code=status.HTTP_201_CREATED)
+# def create_user(user_info: UserCreate, db: Session = Depends(get_db)):
 
-    # Hashing the password
-    hashed_password  = get_password_hash(user_info.password)
-    user_info.password = hashed_password
+#     # Hashing the password
+#     hashed_password  = get_password_hash(user_info.password)
+#     user_info.password = hashed_password
 
-    new_user = User(**user_info.model_dump())
-    db.add(new_user)
-    db.commit()
-    db.refresh(new_user)
-    return new_user
+#     new_user = User(**user_info.model_dump())
+#     db.add(new_user)
+#     db.commit()
+#     db.refresh(new_user)
+#     return new_user
 
 # Deleting User
-@router.post("/users/{id}")
-def delete_user(id: int, db: Session = Depends(get_db)):
+@router.post("/users/{id}", status_code=status.HTTP_204_NO_CONTENT)
+def delete_user(id: int, db: Session = Depends(get_db)):    
     user = db.query(User).filter(User.id==id)
     deleted_user = user.first()
 
     if not deleted_user: 
-        return HTTPException(status_code=status.HTTP_404_NOT_FOUND)
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
+    
     user.delete(synchronize_session=False)
     db.commit()
     return Response(status_code=status.HTTP_204_NO_CONTENT)

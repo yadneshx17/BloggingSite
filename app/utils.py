@@ -1,6 +1,6 @@
 from passlib.context import CryptContext 
 
-# telling which hasing algorithm  we using 
+# Defining Hashing Algorithm 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 # Hashing the password 

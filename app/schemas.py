@@ -1,6 +1,7 @@
 from pydantic import BaseModel, EmailStr
 from typing import Optional
 
+# model for Request and Response
 
 class BLogcreate(BaseModel):
     title: str

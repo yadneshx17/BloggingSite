@@ -1,8 +1,11 @@
-from fastapi import Depends, FastAPI
+from fastapi import Depends, FastAPI, Form
 from .database import get_db
 from sqlalchemy.orm import Session
 import psycopg2
 from .routers import blogs, users, auth
+from typing import Annotated
+
+
 
 app = FastAPI()
 
@@ -12,4 +15,4 @@ app.include_router(auth.router)
 
 @app.get("/")
 def root(db: Session = Depends(get_db)):
-    return {"message": "Blogging Site"}
+    return {"message": "x Site"}
