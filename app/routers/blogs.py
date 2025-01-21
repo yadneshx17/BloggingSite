@@ -7,7 +7,7 @@ from fastapi import APIRouter
 from ..schemas import BLogcreate, BlogOut
 
 
-router = APIRouter()
+router = APIRouter(tags=['Blogs'])
 
 #get blog
 @router.get("/blogs/", response_model=list[BlogOut])
@@ -19,7 +19,7 @@ def get_blogs(db: Session = Depends(get_db)):
 
 #get blog by id
 @router.get("/blogs/{id}", response_model=list[BlogOut])
-def get_blogs(id: int, db: Session = Depends(get_db)):
+def get_blog_by_id(id: int, db: Session = Depends(get_db)):
     blog = db.query(Blog).filter(Blog.id==id).all()
     if not blog:
         return {"message": "Blog does not exist"}
@@ -35,8 +35,8 @@ def create_blogs(data: BLogcreate, db: Session = Depends(get_db)):
     return new_blog
 
 # Delete Blogs
-@router.post("/blogs/{id}")
-def delete_blogs(id: int, db: Session = Depends(get_db)):
+@router.delete("/blogs/{id}")
+def delete_blog(id: int, db: Session = Depends(get_db)):
     blog = db.query(Blog).filter(Blog.id==id)
     deleted_blog = blog.first()
 

@@ -5,12 +5,11 @@ from ..models import User
 from ..schemas import UserCreate, UserOut
 from ..utils import get_password_hash
 
-router = APIRouter()
+# router = APIRouter()
 
-# router = APIRouter(
-#     prefix="/users",
-#     tags=['Users']
-# )
+router = APIRouter(
+    tags=['Users']
+)
 
 # get user
 @router.get("/users/{id}", response_model=UserOut)
@@ -20,7 +19,7 @@ def get_user(id: int, db : Session = Depends(get_db)):
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"User with id: {id} does not exit")
     return user 
 
-# # create users
+# # create users - replaced to register user in auth file. 
 # @router.post("/users/", status_code=status.HTTP_201_CREATED)
 # def create_user(user_info: UserCreate, db: Session = Depends(get_db)):
 
@@ -35,7 +34,7 @@ def get_user(id: int, db : Session = Depends(get_db)):
 #     return new_user
 
 # Deleting User
-@router.post("/users/{id}", status_code=status.HTTP_204_NO_CONTENT)
+@router.delete("/users/{id}", status_code=status.HTTP_204_NO_CONTENT)
 def delete_user(id: int, db: Session = Depends(get_db)):    
     user = db.query(User).filter(User.id==id)
     deleted_user = user.first()

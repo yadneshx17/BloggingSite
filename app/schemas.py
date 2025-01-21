@@ -16,9 +16,11 @@ class BLogcreate(BaseModel):
     #     extra = "ignore"
 
 class UserCreate(BaseModel):
-    email: EmailStr # EmailStr - validates that its a email and not just normal text
+    full_name: str
     username: str
+    email: EmailStr # EmailStr - validates that its a email and not just normal text
     password: str
+
     
 # ------------------------------------------------------
 

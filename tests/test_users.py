@@ -16,9 +16,10 @@ def test_get_users_notfound():
     res = client.get("/users/1")
     assert res.status_code == 404
 
-def test_create_users():
-    res = client.post("/users/", json={'email': 'john909@gmail.com', 'username': 'john909', 'password': 'password123'})
-    assert res.status_code == 201
+# Replaced to Register User.
+# def test_create_users():
+#     res = client.post("/users/", json={'email': 'john909@gmail.com', 'username': 'john909', 'password': 'password123'})
+#     assert res.status_code == 201
 
 # def test_delete_users():
 #     res = client.delete("/users/8")

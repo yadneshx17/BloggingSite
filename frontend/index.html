@@ -1,96 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yadneshx17 Blogging Site</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
-  <style>
-    body {
-      background: #010922;
-      color: #FFFFFF;
-      font-family: 'Arial', sans-serif;
-    }
-    .gradient {
-      background: linear(90deg, #010922);
-    }
-    .btn-primary {
-      background-color: #8080D7;
-      color: #FFFFFF;
-    }
-    .btn-secondary {
-      border: 2px solid #AAD9D9;
-      color: #AAD9D9;
-    }
-    .card {
-      background-color: #010922;
-      border: 1px solid #8080D7;
-    }
-    /* Adjust hero section to fill the screen height */
-    .hero-section {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindful Blog</title>
+    <link rel="stylesheet" href="assests/style.css" />
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="flex items-center justify-between p-6 gradient">
-    <div class="text-2xl font-bold text-white">Yadneshx17</div>
-    <div class="hidden lg:flex gap-x-8">
-      <a href="#" class="text-white font-semibold hover:text-gray-300">Home</a>
-      <a href="#" class="text-white font-semibold hover:text-gray-300">Blogs</a>
-      <a href="#" class="text-white font-semibold hover:text-gray-300">About Me</a>
-      <a href="#" class="text-white font-semibold hover:text-gray-300">Contact</a>
-      <a href="#" class="text-white font-semibold hover:text-gray-300">Log in &rarr;</a>
-    </div>
-  </nav>
+    <nav class="navbar">
+        <div class="nav-brand">Mindful Blog</div>
+        <ul class="nav-links">
+            <li><a href="http://127.0.0.1:5500/frontend/index.html" class="active">Home</a></li>
+            <li><a href="http://127.0.0.1:5500/frontend/blog.html">Blog</a></li>
+            <li><a href="http://127.0.0.1:5500/frontend/login.html" class="btn-login">Login</a></li>
+            <li><a href="http://127.0.0.1:5500/frontend/login.html" class="btn-register">Register</a></li>
+        </ul>
+    </nav>
 
-  <!-- Hero Section -->
-  <section class="hero-section gradient">
-    <h1 class="text-4xl md:text-8xl font-bold mb-6">Discover, Write, Inspire</h1>
-    <p class="text-lg md:text-xl mb-10">A SPACE TO SHARE, LEARN, AND GROW</p>
-    <div class="flex justify-center gap-x-4">
-      <button class="btn-primary px-8 py-5 rounded-full text-lg font-semibold hover:opacity-90">Explore Blogs</button>
-      <button class="btn-secondary px-6 py-3 rounded-full text-lg font-semibold hover:bg-white hover:text-black">Start Your Journey</button>
-    </div>
-  </section>
+    <header class="hero">
+        <h1>Welcome to Mindful Blog</h1>
+        <p>Discover stories that inspire, educate, and entertain</p>
+    </header>
 
-  <!-- Blog Posts Section -->
-  <section class="py-16 px-8">
-    <h2 class="text-3xl font-bold mb-8 text-center">Blog Posts</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- Blog Card 1 -->
-        <div class="bg-white text-black rounded-lg shadow-md p-6">
-            <img src="https://via.placeholder.com/400x200" alt="Blog 1" class="w-full rounded-lg mb-4">
-            <h3 class="text-xl font-bold mb-2">Drones: The Sky's Limit in Mechatronics Innovation</h3>
-            <p>Drones, also known as Unmanned Aerial Vehicles, have revolutionized various industries by bringing innovation to the forefront of mechatronics...</p>
+    <main class="container">
+        <h2>Featured Posts</h2>
+        <div class="blog-grid">
+            <article class="blog-card">
+                <div class="blog-image">
+                    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1883&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+                </div>
+                <div class="blog-content">
+                    <span class="category">Nature</span>
+                    <h3>First Index</h3>
+                    <p>Content of the First Blog</p>
+                    <div class="blog-meta">
+                        <span class="date">March 15, 2024</span>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-image">
+                    <img src="https://plus.unsplash.com/premium_photo-1664304752635-3e0d8d8185e3?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+                </div>
+                <div class="blog-content">
+                    <span class="category">Lifestyle</span>
+                    <h3>This is Second Blog</h3>
+                    <p>This is the Second content blog</p>
+                    <div class="blog-meta">
+                        <span class="date">March 14, 2024</span>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-image">
+                    <img src="https://plus.unsplash.com/premium_photo-1683134240084-ba074973f75e?q=80&w=1895&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+                </div>
+                <div class="blog-content">
+                    <span class="category">Technology</span>
+                    <h3>Third Blog</h3>
+                    <p>This is the content of the first blog</p>
+                    <div class="blog-meta">
+                        <span class="date">March 13, 2024</span>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+            </article>
         </div>
-        <!-- Blog Card 2 -->
-        <div class="bg-white text-black rounded-lg shadow-md p-6">
-            <img src="https://via.placeholder.com/400x200" alt="Blog 2" class="w-full rounded-lg mb-4">
-            <h3 class="text-xl font-bold mb-2">Innovation in Mechatronics: Driving the Future Forward</h3>
-            <p>Mechatronics is the seamless integration of mechanics, electronics, and computing, and it stands as a cornerstone of innovation in modern engineering...</p>
-        </div>
-        <!-- Blog Card 3 -->
-        <div class="bg-white text-black rounded-lg shadow-md p-6">
-            <h3 class="text-xl font-bold mb-2">Collaboration Magic</h3>
-            <p>Welcome to WordPress! This is a sample post. Edit or delete it to take the first step in your blogging journey...</p>
-        </div>
-    </div>
-</section>
+    </main>
 
+    <footer>
+        <p>&copy; 2024 Mindful Blog. All rights reserved.</p>
+    </footer>
 
-  <!-- Footer -->
-  <footer class="gradient text-center py-10">
-    <div class="text-white">
-      <p>&copy; 2025 Yadneshx17. All rights reserved.</p>
-      <p class="mt-4">Stay connected: <a href="#" class="text-AAD9D9 underline">Join our newsletter</a></p>
-    </div>
-  </footer>
+    <script src="assests/script.js"></script>
 </body>
 </html>

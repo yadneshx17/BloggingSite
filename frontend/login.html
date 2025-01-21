@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div class="container mx-auto">
-        <h1 class="text-3xl font-bold mb-4">Login</h1>
-        <form id="login-form">
-          <input type="email" id="email" placeholder="Email" class="form-control mb-3">
-          <input type="password" id="password" placeholder="Password" class="form-control mb-3">
-          <button class="btn btn-primary" type="submit">Login</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login / Register</title>
+    <link rel="stylesheet" href="assests/login.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="tabs">
+        <button class="tab active" data-tab="login">Login</button>
+        <button class="tab" data-tab="register">Register</button>
+      </div>
+
+      <div class="form-container">
+        <form id="loginForm" class="form active">
+          <h2>Login</h2>
+          <div class="form-group">
+            <input type="email" name="username" placeholder="Email" required />
+          </div>
+          <div class="form-group">
+            <input type="password" name="password" placeholder="Password" required />
+          </div>
+          <button type="submit">Login</button>
         </form>
-      </div>      
-</body>
+
+        <form id="registerForm" class="form">
+          <h2>Register</h2>
+          <div class="form-group">
+            <input type="text" name="full_name" placeholder="Full Name" required />
+          </div>
+          <div class="form-group">
+            <input type="text" name="username" placeholder="Username" required />
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Email" required />
+          </div>
+          <div class="form-group">
+            <input type="password" name="password" placeholder="Password" required />
+          </div>
+          <button type="submit">Register</button>
+        </form>
+        
+        
+      </div>
+    </div>
+    <script src="assests/login.js"></script>
+  </body>
 </html>

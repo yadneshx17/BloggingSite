@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException,status
+from fastapi import APIRouter, Depends, HTTPException, status, Response
 from .. import schemas, utils
 from fastapi.security.oauth2 import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
@@ -27,7 +27,7 @@ def login(user_credentials: OAuth2PasswordRequestForm = Depends(), db: Session =
 
     return {"access_token": access_token, "token_type": "bearer"}
 
-@router.post("/register", response_model=schemas.Token, status_code=status.HTTP_201_CREATED)
+@router.post("/register/", status_code=status.HTTP_201_CREATED)
 def register(user_info: UserCreate, db: Session = Depends(get_db)):
 
     # Hashing the password
@@ -36,6 +36,6 @@ def register(user_info: UserCreate, db: Session = Depends(get_db)):
 
     new_user = User(**user_info.model_dump())
     db.add(new_user)
-    db.commit() 
+    db.commit()
     db.refresh(new_user)
-    return new_user
+    return new_user 
