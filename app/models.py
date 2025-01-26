@@ -23,6 +23,6 @@ class User(Base):
     email = Column(String, nullable=False)
     password = Column(String, nullable=False)
 
-
+# When using alembic no need for manual way.
 # This is a manual way to initialize tables in the database by running Base.metadata.create_all(bind=engine) in your code.
-Base.metadata.create_all(bind=engine)
+# Base.metadata.create_all(bind=engine)
