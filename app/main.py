@@ -1,9 +1,7 @@
 from fastapi import Depends, FastAPI, Form
 from .database import get_db
 from sqlalchemy.orm import Session
-import psycopg2
 from .routers import blogs, users, auth
-from typing import Annotated
 from fastapi.middleware.cors import CORSMiddleware
 
     

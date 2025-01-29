@@ -6,6 +6,11 @@ from fastapi import APIRouter
 
 from ..schemas import BLogcreate, BlogOut
 
+"""
+204 status code should be when the item is not found which means your request processed successfully and the content not found.
+404 status code automatically appears when the requested API is unavailable. Links that lead to a 404 page are often called broken or dead links and can be subject to link rot.
+
+"""
 
 router = APIRouter(tags=['Blogs'])
 
@@ -22,7 +27,7 @@ def get_blogs(db: Session = Depends(get_db)):
 def get_blog_by_id(id: int, db: Session = Depends(get_db)):
     blog = db.query(Blog).filter(Blog.id==id).all()
     if not blog:
-        return {"message": "Blog does not exist"}
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="blog does not exist")
     return blog
 
 # create blog
@@ -41,7 +46,7 @@ def delete_blog(id: int, db: Session = Depends(get_db)):
     deleted_blog = blog.first()
 
     if not deleted_blog:
-        return HTTPException(status_code=status.HTTP_404_NOT_FOUND)
+        return HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Blog does not exist")
     
     blog.delete(synchronize_session=False)
     db.commit()
@@ -54,7 +59,7 @@ def update_blog(id: int, updated_blog: BLogcreate, db: Session = Depends(get_db)
     new_blog = blog.first()
 
     if not new_blog: 
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Blog does not exist")
     
     blog.update(updated_blog.model_dump(), synchronize_session=False)
     db.commit()
