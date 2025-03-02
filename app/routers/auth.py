@@ -30,6 +30,12 @@ def login(user_credentials: OAuth2PasswordRequestForm = Depends(), db: Session =
 @router.post("/register/", status_code=status.HTTP_201_CREATED)
 def register(user_info: UserCreate, db: Session = Depends(get_db)):
 
+    """
+    Mistake: Didn't Gave Attention towards Duplicate user Creation
+    example: per email/username only one account.
+    """
+
+    
     # Hashing the password
     hashed_password  = get_password_hash(user_info.password)
     user_info.password = hashed_password
