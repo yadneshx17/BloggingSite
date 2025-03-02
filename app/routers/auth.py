@@ -40,7 +40,7 @@ def register(user_info: UserCreate, db: Session = Depends(get_db)):
     hashed_password  = get_password_hash(user_info.password)
     user_info.password = hashed_password
 
-    new_user = User(**user_info.model_dump())
+    new_user = User(**user_info.model_dump()) # User() should be pydantic schemas and not an Database model so need to fix this.
     db.add(new_user)
     db.commit()
     db.refresh(new_user)
